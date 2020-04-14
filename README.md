@@ -5,6 +5,8 @@ Select amazon linux instance and configure the settings. In the step-5 Add tags 
 `"192.30.252.0/22",
  "185.199.108.0/22",
  "140.82.112.0/20" `
+
+
 A key pair gets downloaded before launching the instance
 ### Change the read only permissions to the pem file
 `chmod 400 Work.pem`
