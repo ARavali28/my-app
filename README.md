@@ -2,6 +2,7 @@
 
 ## Launch an instance
 Select amazon linux instance and configure the settings. In the step-5 Add tags with the name and in the step-6 configure security group with a new security group(open 8080 port for jenkins with custom TCP in the inbound rule with CIDR add below IP adress along with my IP  to access from anywhere for now).
+
 `"192.30.252.0/22",
  "185.199.108.0/22",
  "140.82.112.0/20" `
@@ -54,51 +55,51 @@ mvn --version
 ```
 sudo yum install git -y
 git version
+```
 
-###Installation of Jenkins`
+
+## Installation of Jenkins
 https://medium.com/@itsmattburgess/installing-jenkins-on-amazon-linux-16aaa02c369c
 
+```
 sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
 sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 sudo yum install jenkins
 sudo service jenkins start
-### Installation of Jenkins
-https://medium.com/@itsmattburgess/installing-jenkins-on-amazon-linux-16aaa02c369c
+```
 
-sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
-sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
-sudo yum install jenkins
-sudo service jenkins start
-
-### To access Jenkins server
+## To access Jenkins server
 Make sure port 8080 is open in security group inbound rules of that virtual machine. http://{ec2-public-dns}:8080
 
 ### Jenkins Home directory
 /var/lib/jenkins/
 
-### Token generation
-Go to github account settings -> Developer settings ->personal access tokens ->here you can generate a new token with complete access.
+## Token generation
+Go to github `account settings -> Developer settings ->personal access tokens`
+Here you can generate a new token with complete access.
 copy the token paste it in jenkins credentials
 
-Access jenkins using public Ip:port number of jenkins 
-Go to manage jenkins-> configure system 
+Access jenkins using `public Ip:port number` of jenkins 
+Go to `manage jenkins-> configure system` 
 scorll down to github and add a new github server 
-Add jenkins credentials with username and password(token generated)
 
-### Configure Webhooks 
-Go to application repository in github -> Repository settings -> Webhooks 
-->Add a new Webhook -> give payload URL as (public ip:8080)jenkins url/github-webhook/
+###Add jenkins credentials with username and password(token generated)
+
+## Configure Webhooks 
+Go to application repository in github `Repository settings -> Webhooks 
+->Add a new Webhook -> give payload URL as (public ip:8080)jenkins url/github-webhook/`
 
  Select content type as application/json -> add webhook 
 
- ### Create jenkins job 
+ ## Create jenkins job 
 
-New item -> in SCM select git -> give repository url -> then add same credentials which we have given in configure system near github server 
+`New item -> in SCM select git -> give repository url ->`  
+Add same credentials which we have given in configure system near github server 
 
 In build triggers select Github Hook trigger for GITScm polling 
-give build commands in execute shell 
+`give build commands in execute shell` 
 save the jenins job  
 
- Whenever the changes are made to any file in that git repository it will automatically triggers the build job in jenkins using this webhooks concept.
+##  Whenever the changes are made to any file in that git repository it will automatically triggers the build job in jenkins using this webhooks concept.
  
 
