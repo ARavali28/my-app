@@ -72,14 +72,14 @@ sudo service jenkins start
 Make sure port 8080 is open in security group inbound rules of that virtual machine. http://{ec2-public-dns}:8080
 
 ### Jenkins Home directory
-/var/lib/jenkins/
+```/var/lib/jenkins/```
 
 ## Token generation
 Go to github `account settings -> Developer settings ->personal access tokens`
 Here you can generate a new token with complete access.
 copy the token paste it in jenkins credentials
 
-Access jenkins using `public Ip:port number` of jenkins 
+###Access jenkins using `public Ip:port number` of jenkins 
 Go to `manage jenkins-> configure system` 
 scorll down to github and add a new github server 
 
