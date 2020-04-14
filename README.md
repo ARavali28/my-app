@@ -1,7 +1,7 @@
 # Triggering jenkins job using webhooks
 
 ## Launch an instance
-Select amazon linux instance and configure the settings. In the step-5 Add tags with the name and in the step-6 configure security group with a new security group(open 8080 port for jenkins with custom TCP in the inbound rule with CIDR add below IP adress along with my IP  to access from anywhere for now).
+Select amazon linux instance and configure the settings. In the step-5 Add tags with the name and in the step-6 configure security group with a new security group(open 8080 port for jenkins with custom TCP in the inbound rule with CIDR add below IP adress along with my IP  to access from anywhere for now).https://api.github.com/meta
 
 ```
 "192.30.252.0/22",
